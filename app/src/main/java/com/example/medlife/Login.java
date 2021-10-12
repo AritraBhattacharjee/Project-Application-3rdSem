@@ -87,7 +87,7 @@ public class Login extends AppCompatActivity {
 
             }
         });
-
+        mAuth = FirebaseAuth.getInstance();
         logind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,24 +96,23 @@ public class Login extends AppCompatActivity {
 
                 if (TextUtils.isEmpty(emailN)) {
                     email.setError("Email is required");
-                }
-                else if (TextUtils.isEmpty(passwords)) {
+                } else if (TextUtils.isEmpty(passwords)) {
                     password.setError("Password is required");
                 }
-                else
-                {
-                    mAuth.signInWithEmailAndPassword(emailN,passwords).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful())
-                            {
-                                Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                                Intent inte = new Intent(Login.this, DashBoard.class);
-                                startActivity(inte);
-                            }
+
+                mAuth.signInWithEmailAndPassword(emailN, passwords).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                            Intent inte = new Intent(getApplicationContext(), DashBoard.class);
+                            startActivity(inte);
+                        } else {
+                            Toast.makeText(Login.this, "Login UnSuccessful", Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
+                    }
+                });
+
 
             }
         });
