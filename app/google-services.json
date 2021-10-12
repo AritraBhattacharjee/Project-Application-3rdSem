@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "622327362145",
+    "project_id": "medlife-12345",
+    "storage_bucket": "medlife-12345.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622327362145:android:c92c3cbe2a7bf0f7593020",
+        "android_client_info": {
+          "package_name": "com.example.medlife"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "622327362145-el50938irdrl7c6mrl4tb6ioqoarii2h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbCQOdpo77gbAN_vgolqvMa2Vw3KFvgck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "622327362145-el50938irdrl7c6mrl4tb6ioqoarii2h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
