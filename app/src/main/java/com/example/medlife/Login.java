@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -66,16 +67,19 @@ public class Login extends AppCompatActivity {
     private EditText email, password;
     private TextView errorM;
     private FirebaseAuth mAuth;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        getSupportActionBar().hide();// for hiding the action bar
         logind = findViewById(R.id.logindashboard);
         email = findViewById(R.id.editTextTextEmailAddress);
         password = findViewById((R.id.editTextTextPassword));
         errorM = findViewById(R.id.errorMessage);
+        progressBar = findViewById(R.id.progressBar);
+
 
         back = findViewById(R.id.imageButton);
         back.setOnClickListener(new View.OnClickListener() {
@@ -96,9 +100,12 @@ public class Login extends AppCompatActivity {
 
                 if (TextUtils.isEmpty(emailN)) {
                     email.setError("Email is required");
+                    return;
                 } else if (TextUtils.isEmpty(passwords)) {
                     password.setError("Password is required");
+                    return;
                 }
+                progressBar.setVisibility(View.VISIBLE);
 
                 mAuth.signInWithEmailAndPassword(emailN, passwords).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
