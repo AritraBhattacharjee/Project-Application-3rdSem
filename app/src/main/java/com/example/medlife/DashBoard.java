@@ -2,6 +2,7 @@ package com.example.medlife;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.MediaRouteButton;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,7 +26,16 @@ public class DashBoard extends AppCompatActivity {
                 Intent intent = new Intent(DashBoard.this, Login.class);
                 startActivity(intent);
 
+
+
             }
         });
+
+
+
+
+
+
+
     }
 }
